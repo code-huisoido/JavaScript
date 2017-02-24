@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	var o = {}
+	Object.defineProperty(o, 'a', {
+		enumerable: true,
+		value: 1
+	});
+	Object.defineProperty(o, 'b', {
+		enumerable: true,
+		value: 2
+	});
+	Object.defineProperty(o, 'c', {
+		enumerable: false,
+		value: 3
+	});
+
+	for(var i in o){
+		console.log(i);
+	}
+
+	/**
+	 * result:a b 
+	 * because enumable is false,the o.c can't use in for
+	 */
+
+	 o.d = 4;
+	 for(var j in o){
+	 	console.log(j);
+	 }
+
+	 /**
+	  * result:a b d
+	  * because enumable is default true,so o.d can be print;
+	  */
+</script>
