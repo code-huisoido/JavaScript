@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	var person = {
+		name: 'George',
+		age: 26
+	};
+	console.log(person.name);
+	Object.defineProperty(person, 'name', {
+		value: 'Nicholas',
+		writable: false,
+		configurable: true,
+		enumerable: true
+	});
+	console.log(person.name);
+
+	//beacause writable is false,so name can't set a new value
+	person.name = 'John';
+	console.log(person.name);
+
+
+</script>
