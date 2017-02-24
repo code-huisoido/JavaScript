@@ -1,0 +1,36 @@
+<script type="text/javascript">
+	//the first 
+	var o = {
+		_name: 'John'
+	}
+	Object.defineProperty(o, 'name', {
+		get: function(){
+			return this._name;
+		},
+		set: function(val){
+			if(val){
+				this._name = val;
+			}
+		}
+	
+	});
+
+	console.log(o.name);
+	o.name = 'George';
+	console.log(o.name);
+
+	//the second
+	var lost = {
+		_name: 'George',
+		get name(){
+			return this._name;
+		},
+		set name(val){
+			this._name = val;
+		}
+	}
+
+	console.log(lost.name);
+	lost.name = 'Nicholas';
+	console.log(lost.name);
+</script>
