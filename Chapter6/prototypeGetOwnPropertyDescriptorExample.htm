@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    function Person(){}
+
+    Person.prototype.name = 'Nicholas';
+
+    var person1 = new Person();
+    console.log(Object.getOwnPropertyDescriptor(Person.prototype, "constructor"));
+
+    person1.name = 'George';
+    console.log(person1);
+    console.log(Object.getOwnPropertyDescriptor(person1, "name"));
+</script>

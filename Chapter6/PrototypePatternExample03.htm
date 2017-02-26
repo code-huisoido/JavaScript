@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    /**
+     * hasOwnProperty 是用来判断该对象本身是否拥有这个属性
+     */
+    function Person(){}
+
+    Person.prototype.name = 'Nicholas';
+    Person.prototype.sayName = function(){
+        console.log(this.name);
+    }
+
+    var person1 = new Person();
+    person1.sayName();
+    console.log(person1.hasOwnProperty("name"));
+
+    person1.name = 'George';
+    person1.sayName();
+    console.log(person1.hasOwnProperty("name"));
+
+    delete person1.name;
+    person1.sayName();
+    console.log(person1.hasOwnProperty("name"));
+</script>
