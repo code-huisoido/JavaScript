@@ -52,17 +52,17 @@
         `例子：var MAX_COUNT = 10;`
     - 构造函数
     	- 命名遵照大驼峰命名法   
-```javascript
-function Person(name) {
-    this.name = name; 
-}
+		```javascript
+		function Person(name) {
+		    this.name = name; 
+		}
 
-Person.prototype.sayName = function() {
-    alert(this.name); 
-};
+		Person.prototype.sayName = function() {
+		    alert(this.name); 
+		};
 
-var me = new Person("Nicholas");
-```
+		var me = new Person("Nicholas");
+		```
         
 
 
