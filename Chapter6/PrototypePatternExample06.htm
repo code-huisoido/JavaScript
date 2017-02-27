@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    var o = {
+        toString : function(){
+            return "My Object";
+        }
+    };
+
+    for (var prop in o){
+        if (prop == "toString"){
+
+            //书上说IE8不会显示该警告框，但我的ie浏览器设置了浏览器模式为IE8的时候还是会跳出警告框 >o<!
+            alert("Found toString");
+        }
+    }
+</script>

@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    function Person(){}
+
+    Person.prototype.name = "Nicholas";
+    Person.prototype.age = 29;
+    Person.prototype.job = "Software Engineer";
+
+    var keys = Object.getOwnPropertyNames(Person.prototype);
+    console.log(keys);
+</script>

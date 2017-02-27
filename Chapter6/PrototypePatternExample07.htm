@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    function Person(){}
+
+    Person.prototype = {
+        
+        name : "Nicholas",
+        age : 29,
+        job : "Software Engineer",
+        sayName : function(){
+            alert(this.name);
+        }
+    };
+    //像上面对象字面量的写法会没有constructor属性，需要显性写出constructor:Person，但constructor属性的特性[[Enumerable]]会被设置为true
+    //Person.prototype.name = "Nicholas";
+
+    var friend = new Person();
+
+    console.log(friend);
+    console.log(friend instanceof Object);
+    console.log(friend instanceof Person);
+    console.log(friend.constructor == Person);
+    console.log(friend.constructor == Object);
+</script>

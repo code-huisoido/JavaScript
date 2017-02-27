@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    function hasPrototypeProperty(object, name){
+        return !object.hasOwnProperty(name) && (name in object);
+    }
+
+    function Person(){}
+
+    Person.prototype = {
+        name: "Nicholas"
+    };
+
+    var person1 = new Person();
+    console.log(hasPrototypeProperty(person1, "name"));
+
+    person1.name = "George";
+    console.log(hasPrototypeProperty(person1, "name"));
+    
+</script>
