@@ -8,7 +8,7 @@
 
         //方法
         if (typeof this.sayName != "function"){
-
+            console.log("in");
             Person.prototype.sayName = function(){
                 console.log(this.name);
             };
@@ -17,4 +17,8 @@
 
     var friend = new Person("Nicholas", 29, "Software Engineer");
     friend.sayName();
+
+    //Person中的原型只初始化一次
+    var friend2 = new Person("George", 26, "Engineer");
+    friend2.sayName();
 </script>
