@@ -8,9 +8,14 @@
     SubType.prototype = new SuperType();
 
     var instance1 = new SubType();
+    console.log(instance1);
+    //说明了往instace1的原型对象的color属性添加了black值。
     instance1.colors.push("black");
     console.log(instance1);
 
     var instance2 = new SubType();
     console.log(instance2.colors);
+
+    var instance3 = new SuperType();
+    console.log(instance3);
 </script>
