@@ -6,6 +6,26 @@
 <script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="./jquery-extend.js"></script>
 <body>
-
+<ul>
+	<li>
+		<a href="http://www.baidu.com">我的微博</a>
+	</li>
+	<li>
+		<a href="http://www.z.cn">我的博客</a>
+	</li>
+	<li>
+		<a href="http://www.jd.com">我的小站</a>
+	</li>
+</ul>
+<p>这是p标签不是a标签，我不会受影响</p>
+<script type="text/javascript">
+	$(function(){
+		$('a').myPlugin({
+			'color' : '#2c9929',
+			'fontSize' : '20px',
+			'textDecoration' : 'underline'
+		});
+	})
+</script>
 </body>
 </html>
