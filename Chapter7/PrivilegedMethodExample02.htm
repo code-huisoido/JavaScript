@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    (function(){
+
+        var name = "";
+
+        Person = function(value){
+            name = value;
+        };
+
+        Person.prototype.getName = function(){
+            return name;
+        };
+
+        Person.prototype.setName = function(value){
+            name = value;
+        };
+    })();
+
+    var person1 = new Person("Nicholas");
+    console.log(person1);
+    console.log(person1.getName());
+    person1.setName("Greg");
+    console.log(person1.getName());
+
+    var person2 = new Person("Michael");
+    console.log(person1.getName());
+    console.log(person2.getName());
+</script>
