@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    function outputNumbers(count){
+        (function(){
+            for (var i=0; i<count; i++){
+                console.log(i);
+            }
+        })();
+
+        console.log(i);
+    }
+
+    //因为for循环在匿名函数内，因此i变量在for循环外面就已经失效了
+    outputNumbers(5);
+</script>

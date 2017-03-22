@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    function Person(name){
+
+        this.getName = function(){
+            return name;
+        };
+
+        this.setName = function(value){
+            name = value;
+        };
+    }
+
+    var person = new Person("Nicholas");
+    console.log(person);
+    console.log(person.getName());
+    person.setName("George");
+    console.log(person.getName());
+</script>

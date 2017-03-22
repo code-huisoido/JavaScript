@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    //在javascript中没有块级作用域
+    function outputNumbers(count){
+        for (var i=0; i<count; i++) {
+            console.log(i);
+        }
+        var i;
+        console.log("在for循环外面打印i的值：" + i);
+    }
+    
+    outputNumbers(5);
+</script>
