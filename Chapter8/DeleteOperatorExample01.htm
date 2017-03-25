@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    var age = 29;
+    window.color = "red"
+
+    //在IE < 9 时抛出错误，在其他所有浏览器中返回false
+    delete window.age
+
+    //在IE < 9 时抛出错误，在其他所有浏览器中返回true
+    delete window.color;
+
+    console.log(window.age);
+    console.log(window.color);
+</script>
