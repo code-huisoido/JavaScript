@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    var num = 0,
+        max = 10;
+
+    function setTimeoutFunc(){
+        num++;
+
+        if (num < max) {
+            setTimeout(setTimeoutFunc, 500);            
+        } else {
+            console.log("done");
+        }
+    }
+
+    setTimeout(setTimeoutFunc, 500);
+</script>

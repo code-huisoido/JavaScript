@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    var num = 0;
+    var max = 10;
+    var intervalId = null;
+    console.log(new Date());
+
+    function incrementNumber(){
+        num ++;
+
+        //如果执行次数达到了max设定的值，则取消后续尚未执行的调用
+        if (num == max) {
+            clearInterval(intervalId);
+            console.log("Done");
+            console.log(new Date());
+        }
+    }
+
+    intervalId = setInterval(incrementNumber, 500);
+</script>
