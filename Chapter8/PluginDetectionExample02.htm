@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    //检测IE中的插件
+    function hasIEPlugin(name) {
+        try {
+            new ActiveXObject(name);
+            return true;
+        } catch (ex) {
+            return false;
+        }
+    }
+
+    //检测 Flash
+    console.log(hasIEPlugin("ShockwaveFlash.ShockwaveFlash"));
+    console.log(hasIEPlugin("QuickTime.QuickTime"));
+</script>
