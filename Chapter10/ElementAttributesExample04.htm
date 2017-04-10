@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    function outputAttributes(element){
+        var pairs = new Array(),
+            attrName,
+            attrValue,
+            i,
+            len;
+
+        for (i=0, len=element.attributes.length; i < len; i++) {
+            attrName = element.attributes[i].nodeName;
+            attrValue = element.attributes[i].nodeValue;
+            //针对IE7及更早版本的浏览器
+            if (element.attributes[i].specified) {
+                pairs.push(attrName + "=\"" + attrValue + "\"");
+            }
+        }
+        return pairs.join(" ");
+    }
+</script>

@@ -1,0 +1,8 @@
+<div id="my_div">Hello World!</div>
+<script type="text/javascript">
+    var div = document.getElementById("my_div");
+    var textNode = div.firstChild;
+    console.log(textNode);
+    div.firstChild.nodeValue = "Some <strong>other</strong> message";
+    console.log(textNode);
+</script>
