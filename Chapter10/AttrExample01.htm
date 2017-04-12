@@ -1,0 +1,11 @@
+<div id="myDiv">hello</div>
+
+<script type="text/javascript">
+    var attr = document.createAttribute("align");
+    attr.value = "left";
+    var element = document.getElementById("myDiv");
+    element.setAttributeNode(attr);
+    console.log(element.attributes);
+    console.log(element.getAttributeNode("align").value);
+    console.log(element.getAttribute("align"));
+</script>
