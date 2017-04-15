@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DynamicStyleExample01</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(document.createTextNode("body{background-color:red}"));
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(style);
+</script>
+</html>
