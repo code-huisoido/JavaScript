@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nodeist</title>
+</head>
+<body>
+<div>hello</div>
+</body>
+<script type="text/javascript">
+    //以下代码将会进入无限循环，因为divs.length是动态获取的
+    var divs = document.getElementsByTagName("div"),
+        i,
+        div;
+
+    for (i=0; i < divs.length; i++) {
+        div = document.createElement("div");
+        document.body.appendChild(div);
+    }
+    /*var divs = document.getElementsByTagName("div"),
+        i,
+        len,
+        div;
+
+    for (i=0, len=divs.length; i < len; i++) {
+        div = document.createElement("div");
+        document.body.appendChild(div);
+    }*/
+</script>
+</html>

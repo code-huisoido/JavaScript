@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="myDiv"></div>
+<p>
+    <strong>1</strong>
+    <strong>2</strong>
+</p>
+</body>
+<script type="text/javascript">
+    var ems = document.getElementById("myDiv").querySelectorAll("em");
+    var selecteds = document.querySelectorAll(".selected");
+    var strongs = document.querySelectorAll("p strong");
+
+    var i, len, strong;
+    for (i=0, len=strongs.length; i < len; i++) {
+        strong = strongs[i];
+        strong.className = "important";
+    }
+</script>
+</html>
