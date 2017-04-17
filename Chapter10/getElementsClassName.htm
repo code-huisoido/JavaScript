@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<div id="myDiv" class="bd user disabled">Hello</div>
+</body>
+<script type="text/javascript">
+    var div = document.getElementById("myDiv");
+
+    //第一种方法删除class中的某个字符串
+    var classNames = div.className.split(/\s+/);
+
+    var pos = -1,
+        i,
+        len;
+    for (i=0, len=classNames.length; i < len; i++) {
+        if (classNames[i] == 'user') {
+            pos = i;
+            break;
+        }
+    }
+
+    classNames.splice(i, 1);
+    div.className = classNames.join(" ");
+
+    //第二种方法删除class中的某个字符串
+    div.classList.remove("disabled");
+
+    div.classList.add("current");
+
+    div.classList.add("user");
+
+    if (div.classList.contains("bd")) {
+        console.log("the className contain bd");
+    }
+</script>
+</html>

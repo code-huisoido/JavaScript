@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<button id="myButton">demo</button>
+</body>
+<script type="text/javascript">
+    var button = document.getElementById("myButton");
+    button.focus();
+    console.log(document.activeElement === button);
+    //确定文档获得焦点
+    console.log(document.hasFocus());
+</script>
+</html>

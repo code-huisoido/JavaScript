@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    if (document.compatMode == "CSS1Compat") {
+        console.log("Standards mode");
+    } else {
+        console.log("Quirks mode");
+    }
+
+    var head = document.head || document.getElementsByTagName("head")[0];
+    console.log(head);
+    console.log(document.charset);
+
+    console.log(document.defaultCharset);
+</script>
+</html>
