@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<div id="myDiv" data-appId="12345" data-myName="Nicholas"></div>
+</body>
+<script type="text/javascript">
+    var div = document.getElementById("myDiv");
+    //data属性自动转为小写
+    var appId = div.dataset.appid;
+    var myName = div.dataset.myname;
+    console.log(appId);
+    if (div.dataset.myname) {
+        console.log("Hello, " + div.dataset.myname);
+    }
+</script>
+</html>
