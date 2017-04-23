@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<div id="myDiv" style="width:50px;height:20px;background-color:blue;"></div>
+</body>
+<script type="text/javascript">
+    var myDiv = document.getElementById("myDiv");
+    var prop, value, i, len;
+    for (i=0, len=myDiv.style.length; i < len; i++) {
+        prop = myDiv.style[i];
+        console.log(prop);
+        // getPropertyCSSValue 已经废弃的属性，详细见：https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/getPropertyCSSValue
+        value = myDiv.style.getPropertyCSSValue(prop);
+        console.log(prop + " : " + value.cssText + " (" + value.cssValueType + ")");
+    }
+</script>
+</html>
