@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<div id="div1">
+    <p><b>Hello</b> world！</p>
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var div = document.getElementById("div1");
+    var filter = function(node) {
+        return node.tagName.toLowerCase() == "li" ? NodeFilter.FIL/TER_ACCEPT : NodeFilter.FIL/TER_SKIP;
+    };
+
+    var walker = document.createTreeWalker(div, NodeFilter.SHOW_ELEMENT, filter, false);
+
+    var node = walker.nextNode();
+    while (node !== null) {
+        console.log(node.tagName);
+        node = walker.nextNode();
+    }
+</script>
+</html>

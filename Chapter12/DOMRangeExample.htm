@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var range1 = document.createRange();
+    var range2 = document.createRange();
+        p1 = document.getElementById("p1");
+    console.log(range1.selectNode(p1));
+    range2.selectNodeContents(p1);
+</script>
+</html>
