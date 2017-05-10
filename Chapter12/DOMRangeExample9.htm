@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var p1 = document.getElementById("p1");
+    var range1 = document.createRange();
+    var range2 = document.createRange();
+
+    range1.selectNodeContents(p1);
+    range2.selectNodeContents(p1);
+    range2.setEndBefore(p1.lastChild);
+    console.log(range2);
+    console.log(range1.compareBoundaryPoints(Range.START_TO_START, range2));
+    console.log(range1.compareBoundaryPoints(Range.END_TO_END, range2));
+</script>
+</html>
