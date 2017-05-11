@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var range = document.body.createTextRange();
+    range.findText("Hello");
+    range.pasteHTML("<em>Howdy</em>");
+
+</script>
+</html>

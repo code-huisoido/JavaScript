@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var range = document.body.createTextRange();
+    var p1 = document.getElementById("p1");
+    range.moveToElementText(p1);
+    console.log(range.htmlText);
+
+    var ancestor = range.parentElement();
+    console.log(ancestor);
+</script>
+</html>

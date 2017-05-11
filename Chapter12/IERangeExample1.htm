@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var range = document.body.createTextRange();
+    var found = range.findText("Hello");
+    console.log(found);
+    console.log(range.text);
+</script>
+</html>

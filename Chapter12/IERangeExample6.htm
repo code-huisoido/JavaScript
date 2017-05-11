@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<p id="p1"><b>Hello</b> world!</p>
+</body>
+<script type="text/javascript">
+    var range1 = document.body.createTextRange();
+    var range2 = document.body.createTextRange();
+
+    range1.findText("Hello World");
+    range2.findText("Hello");
+    console.log("range1.isEqual(range2): " + range1.isEqual(range2));
+
+    console.log("range1.inRange(range2): " + range1.inRange(range2));
+</script>
+</html>
