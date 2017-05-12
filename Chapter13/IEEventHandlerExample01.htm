@@ -9,10 +9,14 @@
     <button id="myBtn">按钮</button>
 </body>
 <script>
-    //attachEvent 在IE11上不支持了,用addEventListener
+    //在IE8或IE8以下浏览器用attachEvent，在IE9以上用addEventListener
+    //书上说会相反的顺序触发，但事实上是按顺序触发
     var btn = document.getElementById("myBtn");
     btn.attachEvent("onclick", function(){
-        console.log("Clicked");
+        alert("Clicked");
+    });
+    btn.attachEvent("onclick", function(){
+        alert("Hello world!");
     });
 </script>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">按钮</button>
+</body>
+<script>
+    var btn = document.getElementById("myBtn");
+    var handler = function() {
+        alert("clicked");
+    };
+    btn.attachEvent("onclick", handler);
+
+    btn.detachEvent("onclick", handler);
+</script>
+</html>
