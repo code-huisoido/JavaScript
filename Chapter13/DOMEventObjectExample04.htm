@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" id="myLink">go to baidu</a>
+</body>
+<script>
+    var link = document.getElementById("myLink");
+    link.onclick = function(event) {
+        event.preventDefault();
+    };
+</script>
+</html>

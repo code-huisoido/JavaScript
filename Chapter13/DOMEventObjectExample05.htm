@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">a button</button>
+</body>
+<script>
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(event) {
+        alert("Clicked");
+        event.stopPropagation();
+    };
+
+    document.body.onclick = function(event) {
+        alert("Body Clicked");
+    };
+</script>
+</html>

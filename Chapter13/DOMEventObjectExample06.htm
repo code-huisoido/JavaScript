@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">a button</button>
+</body>
+<script>
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(event) {
+        console.log('btn clicked');
+        alert(event.eventPhase);
+    };
+
+    document.body.addEventListener("click", function(event){
+        console.log('catch click event');
+        alert(event.eventPhase);
+    }, true);
+
+    document.body.onclick = function(event){
+        console.log('body clicked');
+        alert(event.eventPhase);
+    };
+</script>
+</html>

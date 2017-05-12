@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">a button</button>
+</body>
+<script>
+    document.body.onclick = function(event) {
+        console.log(event.currentTarget === document.body);
+        console.log(this === document.body);
+        console.log(event.target === document.getElementById("myBtn"));
+    }
+</script>
+</html>
