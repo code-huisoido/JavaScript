@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">按钮</button>
+</body>
+<script>
+    var btn = document.getElementById("myBtn");
+    /*btn.addEventListener("click", function(){
+        console.log(this.id);
+    }, false);
+    btn.addEventListener("click", function(){
+        console.log("Hello world!");
+    }, false);*/
+
+    var handler = function(){
+        console.log(this.id);
+    };
+    btn.addEventListener("click", handler, false);
+
+    btn.removeEventListener("click", handler, false);
+</script>
+</html>

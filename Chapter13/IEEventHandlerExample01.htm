@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">按钮</button>
+</body>
+<script>
+    //attachEvent 在IE11上不支持了,用addEventListener
+    var btn = document.getElementById("myBtn");
+    btn.attachEvent("onclick", function(){
+        console.log("Clicked");
+    });
+</script>
+</html>
