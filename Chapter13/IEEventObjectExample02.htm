@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<a href="http://www.baidu.com" id="myLink">go to baidu</a>
+</body>
+<script type="text/javascript">
+    var link = document.getElementById("myLink");
+    link.onclick = function(){
+        window.event.returnValue = false;
+    };
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script type="text/javascript" src="./EventUtil.js"></script>
+</head>
+<body>
+<button id="myBtn">a button</button>
+</body>
+<script type="text/javascript">
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(event) {
+        alert("Clicked");
+        event = EventUtil.getEvent(event);
+        EventUtil.stopPropagation(event);
+    };
+
+    document.body.onclick = function(event) {
+        alert("Body clicked");
+    };
+</script>
+</html>
