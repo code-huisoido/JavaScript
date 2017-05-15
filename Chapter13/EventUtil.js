@@ -58,6 +58,14 @@ var EventUtil = {
         }
     },
 
+    getCharCode: function(event) {
+        if (typeof event.charCode == "number"){
+            return event.charCode;
+        } else {
+            return event.keyCode;
+        }
+    },
+
     preventDefault: function(event) {
         if (event.preventDefault) {
             event.preventDefault();
