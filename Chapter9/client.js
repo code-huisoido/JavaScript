@@ -81,7 +81,7 @@ var client = function(){
     } else if (/KHTML\/(\S+)/.test(ua) || /Konqueror\/([^;]+)/.test(ua)) {
         engine.ver = browser.ver = RegExp["$1"];
         engine.khtml = browser.konq = parseFloat(engine.ver);
-    } else if (/rv:([^\)])+)\) Gecko\/\d(8)/.test(ua)){
+    } else if (/rv:([^\)]+)\) Gecko\/\d(8)/.test(ua)){
         engine.ver = RegExp["$1"];
         engine.gecko = parseFloat(engine.ver);
 
@@ -96,8 +96,8 @@ var client = function(){
     }
 
     //检测浏览器
-    brower.ie = engine.ie;
-    brower.opera = engine.opera;
+    browser.ie = engine.ie;
+    browser.opera = engine.opera;
 
     //检测平台
     var p = navigator.platform;

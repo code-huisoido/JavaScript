@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Related Elements Example</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv" style="background-color:red;height:100px;width:100px;"></div>
+</body>
+<script>
+    var div = document.getElementById("myDiv");
+    EventUtil.addHandler(div, "mouseout", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+        var relatedTarget = EventUtil.getRelatedTarget(event);
+        alert("Moused out of " + target.tagName + " to " + relatedTarget.tagName);
+    })
+</script>
+</html>
