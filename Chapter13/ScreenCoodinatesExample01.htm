@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body style="margin:0;padding:0;">
+    <div id="myDiv" style="width:500px;height:500px;background:green;">Hello</div>
+</body>
+<script>
+    //pageX和pageY是反映鼠标在页面上的实际位置,但在IE8早期浏览器不支持
+    var div = document.getElementById("myDiv");
+    EventUtil.addHandler(div, "click", function(event){
+        event = EventUtil.getEvent(event);
+        alert("Screen coordinates:" + event.screenX + "," + event.screenY);
+    })
+</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script type="text/javascript" src="./EventUtil.js"></script>
+</head>
+<body style="height:768px;">
+</body>
+<script type="text/javascript">
+    EventUtil.addHandler(window, "scroll", function(event){
+        if (document.compatMode == 'CSS1Compat') {
+            alert(document.documentElement.scrollTop);
+        } else {
+            alert(document.body.scrollTop);
+        }
+    })
+</script>
+</html>

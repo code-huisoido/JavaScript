@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script type="text/javascript" src="./EventUtil.js"></script>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    EventUtil.addHandler(window, "load", function(){
+        var script = document.createElement("script");
+        EventUtil.addHandler(script, "load", function(event){
+            alert("Loaded");
+        });
+        script.src = "example.js";
+        document.body.appendChild(script);
+    });
+
+    EventUtil.addHandler(window, "load", function(){
+        var link = document.createElement("link");
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        EventUtil.addHandler(link, "load", function(event){
+            alert("css loaded");
+        });
+        link.href = "example.css";
+        document.getElementsByTagName("head")[0].appendChild(link);
+    })
+</script>
+</html>
