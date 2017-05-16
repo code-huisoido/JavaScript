@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //注意是document的事件，不是window的
+    EventUtil.addHandler(document, "DOMContentLoaded", function(event){
+        alert("Content loaded");
+    });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    EventUtil.addHandler(window, "load", function(){
+        var script = document.createElement("script");
+
+        EventUtil.addHandler(script, "readystatechange", function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+
+            if (target.readyState == "loaded" || target.readyState == "complete") {
+                EventUtil.removeHandler(target, "readystatechange", arguments.callee);
+                alert("Script Loaded");
+            }
+        });
+        script.src = "example.js";
+        document.body.appendChild(script);
+    });
+</script>
+</html>

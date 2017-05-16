@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    (function(){
+        var showCount = 0;
+
+        EventUtil.addHandler(window, "load", function(){
+            alert("Load fired");
+        });
+
+        EventUtil.addHandler(window, "pageshow", function(){
+            showCount++;
+            alert("Show has been fired " + showCount + " event.Persisted? " + event.persisted);
+        });
+    })();
+</script>
+</html>

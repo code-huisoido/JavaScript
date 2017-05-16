@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //IE浏览器会提示message，谷歌浏览器会显示是否要离开网页
+    EventUtil.addHandler(window, "beforeunload", function(event){
+        event = EventUtil.getEvent(event);
+        var message = "I'm really going to miss you if you go.";
+        event.returnValue = message;
+        return message;
+    });
+</script>
+</html>
