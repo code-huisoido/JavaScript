@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    var isSupported = ("onhashchange" in window) && (document.documentMode === undefined || document.documentMode > 7);
+    console.log(isSupported);
+
+    EventUtil.addHandler(window, "hashchange", function(event){
+        alert("Old URL: " + event.oldURL + "\nNew URL: " + event.newURL);
+        //alert("Current has: " + location.hash);
+    });
+</script>
+</html>
