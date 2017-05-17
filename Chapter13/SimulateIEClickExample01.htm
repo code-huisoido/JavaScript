@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">a button</button>
+</body>
+<script>
+    //IE8之前的
+    var btn = document.getElementById("myBtn");
+
+    //创建事件对象
+    var event = document.createEventObject();
+
+    //初始化事件对象
+    event.screenX = 100;
+    event.screenY = 0;
+    event.clientX = 0;
+    event.clientY = 0;
+    event.ctrlKey = false;
+    event.altKey = false;
+    event.shiftKey = false;
+    event.button = 0;
+
+    //触发事件
+    btn.fireEvent("onclick", event);
+</script>
+</html>

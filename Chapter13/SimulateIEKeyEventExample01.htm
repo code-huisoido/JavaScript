@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <input type="text" id="myTextbox" />
+</body>
+<script>
+    var textbox = document.getElementById("myTextbox");
+
+    //创建事件对象
+    var event = document.createEventObject();
+
+    //初始化事件对象
+    event.altKey = false;
+    event.ctrlKey = false;
+    event.shiftKey = false;
+    event.keyCode = 65;
+
+    //触发事件
+    textbox.fireEvent("onkeypress", event);
+</script>
+</html>

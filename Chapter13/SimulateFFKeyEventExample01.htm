@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <input id="myTextbox" />
+</body>
+
+<script type="text/javascript">
+    //只适用于Firefox
+    var textbox = document.getElementById("myTextbox");
+
+    //创建事件对象
+    var event = document.createEvent("KeyEvents");
+
+    //初始化事件对象
+    event.initKeyEvent("keypress", true, true, document.defaultView, false, false, false, false, 65, 65);
+
+    //触发事件
+    textbox.dispatchEvent(event);
+</script>
+</html>

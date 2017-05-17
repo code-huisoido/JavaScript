@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button id="myBtn">a button</button>
+</body>
+<script>
+    var btn = document.getElementById("myBtn");
+
+    btn.addEventListener("click", function(event){
+        alert("clicked");
+    }, false);
+
+    //创建事件对象
+    var event = document.createEvent("MouseEvents");
+
+    //初始化事件对象
+    event.initMouseEvent("click", true, true, document.defaultView, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+    //触发了鼠标点击按钮事件
+    btn.dispatchEvent(event);
+    
+</script>
+</html>

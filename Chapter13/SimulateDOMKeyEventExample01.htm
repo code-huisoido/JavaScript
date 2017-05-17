@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <input type="text" id="myTextbox" />
+</body>
+<script>
+    var textbox = document.getElementById("myTextbox"),
+        event;
+
+    //以 DOM3 级方式创建事件对象
+    if (document.implementation.hasFeature("KeyboardEvents", "3.0")) {
+        console.log("in");
+        event = document.createEvent("KeyboardEvent");
+
+        //初始化事件对象
+        event.initKeyboardEvent("keydown", true, true, document.defaultView, "a", 0, "Shift", 0);
+    }
+
+    textbox.dispatchEvent(event);
+</script>
+</html>
