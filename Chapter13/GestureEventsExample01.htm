@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    function handleGestureEvent(event) {
+        var output = document.getElementById("output");
+        switch(event.type){
+            case "gesturestart":
+                output.innerHTML = "Gesture started (rotation=" + event.roration + ",scale=" + event.scale + ")";
+                break;
+            case "gestureend":
+                output.innerHTML += "<br>Gesture ended (rotation=" + event.rotation + ",scale=" + event.scale + ")";
+                break;
+            case "gesturechange":
+                output.innerHTML += "<br>Gesture changed (rotation=" + event.roration + ",scale=" + event.scale + ")";
+                break; 
+        }
+    }
+
+    document.addEventListener("gesturestart", handleGestureEvent, false);
+    document.addEventListener("gestureend", handleGestureEvent, false);
+    document.addEventListener("gesturechange", handleGestureEvent, false);
+</script>
+</html>
