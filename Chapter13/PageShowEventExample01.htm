@@ -20,6 +20,10 @@
             showCount++;
             alert("Show has been fired " + showCount + " event.Persisted? " + event.persisted);
         });
+
+        EventUtil.addHandler(window, "pagehide", function(event){
+            alert("Hiding, Persisted? " + event.persisted);
+        })
     })();
 </script>
 </html>

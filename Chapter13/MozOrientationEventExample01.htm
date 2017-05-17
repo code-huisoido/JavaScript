@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <div id="output"></div>    
+</body>
+<script>
+    EventUtil.addHandler(window, "MozOrientation", function(event){
+        var output = document.getElementById("output");
+        output.innerHTML = "x=" + event.x + ", y=" +event.y + ", z=" + event.z + "<br>";
+    });
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    EventUtil.addHandler(window, "devicemotion", function(event){
+        var output = document.getElementById("output");
+        if (event.rotationRate !== null) {
+            output.innerHTML += "Alpha=" + event.rotationRate.alpha + ", Beta=" + event.rotationRate.beta + ", Gamma=" + event.rotationRate.gamma;
+        }
+    });
+</script>
+</html>
