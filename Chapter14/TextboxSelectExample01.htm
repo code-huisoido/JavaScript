@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <form action="">
+        <input type="text">
+    </form>
+</body>
+<script>
+    var textbox = document.forms[0].elements[0];
+    EventUtil.addHandler(textbox, "focus", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+
+        target.select();
+    });
+</script>
+</html>

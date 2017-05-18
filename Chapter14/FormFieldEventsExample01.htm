@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="">
+        <input type="text" name="">
+    </form>
+</body>
+<script>
+    var textbox = document.forms[0].elements[0];
+
+    EventUtil.addHandler(textbox, "focus", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+
+        if (target.style.backgroundColor != "red") {
+            target.style.backgroundColor = "yellow";
+        }
+    });
+
+    EventUtil.addHandler(textbox, "blur", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+
+        if (/[^\d]/.test(target.value)) {
+            target.style.backgroundColor = "red";
+        } else {
+            target.style.backgroundColor = "";
+        }
+    });
+
+    EventUtil.addHandler(textbox, "change", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+
+        if (/[^\d]/.test(target.value)) {
+            target.style.backgroundColor = "red";
+        } else {
+            target.style.backgroundColor = "";
+        }
+    })
+</script>
+</html>

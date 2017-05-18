@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="myInput">
+    </form>
+</body>
+<script>
+    function getSelectedText(textbox) {
+        if (typeof textbox.selectionStart == "number") {
+            return textbox.value.substring(textbox.selectionStart, textbox.selectionEnd);
+        } else if (document.selection) {
+            return document.selection.createRange().text;
+        }
+    }
+
+    var textbox = document.forms[0].elements["myInput"];
+
+    EventUtil.addHandler(textbox, "select", function(event){
+        console.log(getSelectedText(textbox));
+    })
+    
+</script>
+</html>
