@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="myInput">
+    </form>
+</body>
+<script>
+    var textbox = document.forms[0].elements["myInput"];
+    textbox.value = "Hello world!";
+    /*
+    textbox.focus();
+    var range = textbox.createTextRange();
+
+    //选择所有文本
+    range.collapse(true);
+    range.moveStart("character", 0);
+    range.moveEnd("character", textbox.value.length);
+    range.select();
+
+    //选择前3个字符
+    range.collapse(true);
+    range.moveStart("character", 0);
+    range.moveEnd("character", 3);
+    range.select();
+
+    //选择第4到第6个字符
+    range.collapse(true);
+    range.moveStart("character", 4);
+    range.moveEnd("character", 3);
+    range.select();    */
+    
+    function selectText(textbox, startIndex, stopIndex) {
+        if (textbox.setSelectionRange) {
+            textbox.setSelectionRange(startIndex, stopIndex);
+        } else if (textbox,createTextRange) {
+            var range = textbox.createTextRange();
+            range.collapse(true);
+            range.moveStart("character", startIndex);
+            range.moveEnd("character", stopIndex - startIndex);
+            range.select();
+        }
+        textbox.focus();
+    }
+
+    selectText(textbox, 0, textbox.value.length);
+
+    selectText(textbox, 0, 3);
+
+    selectText(textbox, 4, 7);
+</script>
+</html>
