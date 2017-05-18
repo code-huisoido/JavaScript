@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+    <form action="" method="post" id="myForm">
+        <button name="submit-btn" type="submit">Submit button</button>
+    </form>
+</body>
+<script>
+    var form = document.getElementById("myForm");
+    EventUtil.addHandler(form, "submit", function(event){
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+
+        //取得提交按钮
+        var btn = target.elements["submit-btn"];
+
+        //禁用它
+        btn.disabled = true;
+    });
+</script>
+</html>
