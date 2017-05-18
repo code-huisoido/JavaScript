@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventUtil.js"></script>
+</head>
+<body>
+<form action="">
+    <input type="text" name="tel1" id="txtTel1" maxlength="3">
+    <input type="text" name="tel2" id="txtTel2" maxlength="3">
+    <input type="text" name="tel3" id="txtTel3" maxlength="4">
+</form>
+</body>
+<script>
+    (function () {
+
+        function tabForward(event) {
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+
+            if (target.value.length == target.maxLength) {
+                var form = target.form;
+
+                for (var i=0, len=form.elements.length; i < len; i++) {
+                    if (form.elements[i] == target) {
+                        if (form.elements[i+1]) {
+                            form.elements[i+1].focus();
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+
+        /*var textbox1 = document.getElementById("txtTel1");
+        var textbox2 = document.getElementById("txtTel2");
+        var textbox3 = document.getElementById("txtTel3");
+
+        EventUtil.addHandler(textbox1, "keyup", tabForward);
+        EventUtil.addHandler(textbox2, "keyup", tabForward);
+        EventUtil.addHandler(textbox3, "keyup", tabForward);*/
+
+        EventUtil.addHandler(document.forms[0], "keyup", tabForward);
+    })();
+
+    var isRequiredSupported = "required" in document.createElement("input");
+    //检测是否支持required属性
+    console.log(isRequiredSupported);
+
+    var input = document.createElement("input");
+    input.type = "email";
+    var isEmailSupported = (input.type == "email");
+    console.log(isEmailSupported);
+
+</script>
+</html>
