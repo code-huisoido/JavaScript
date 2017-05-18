@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<form action="">
+    <select name="location" id="selLocation">
+        <option value="Sunnyvale, CA">Sunnyvale</option>
+        <option value="Los Angeles, CA">Los Angeles</option>
+        <option value="Mountain View, CA">Mountain View</option>
+        <option value="">Australia</option>
+    </select>
+</form>
+</body>
+<script>
+    var selectbox = document.forms[0].elements["location"];
+    var newOption = new Option("Option text", "Option value");
+    selectbox.appendChild(newOption);
+</script>
+</html>

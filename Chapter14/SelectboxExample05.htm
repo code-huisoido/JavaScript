@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<form action="">
+    <select name="location1" id="selLocation1">
+        <option value="Sunnyvale, CA">Sunnyvale</option>
+        <option value="Los Angeles, CA">Los Angeles</option>
+        <option value="Mountain View, CA">Mountain View</option>
+        <option value="">Australia</option>
+    </select>
+    <select name="location2" id="selLocation2">
+        <option value="Sunnyvale, CA">Sunnyvale</option>
+        <option value="Los Angeles, CA">Los Angeles</option>
+        <option value="Mountain View, CA">Mountain View</option>
+        <option value="">Australia</option>
+    </select>
+</form>
+</body>
+<script>
+    var selectbox1 = document.forms[0].elements["location1"];
+    var selectbox2 = document.forms[0].elements["location2"];
+
+    selectbox2.appendChild(selectbox1.options[0]);
+</script>
+</html>

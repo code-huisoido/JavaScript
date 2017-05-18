@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<form action="">
+    <select name="location1" id="selLocation1">
+        <option value="Sunnyvale, CA">Sunnyvale</option>
+        <option value="Los Angeles, CA">Los Angeles</option>
+        <option value="Mountain View, CA">Mountain View</option>
+        <option value="">Australia</option>
+    </select>
+</form>
+</body>
+<script>
+    var selectbox = document.forms[0].elements["location1"];
+    var optionToMove = selectbox.options[1];
+    selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index-1]);
+
+    var optionToMove = selectbox.options[2];
+    selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index+2]);
+</script>
+</html>

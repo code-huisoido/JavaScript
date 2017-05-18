@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<form action="">
+    <select name="location" id="selLocation">
+        <option value="Sunnyvale, CA">Sunnyvale</option>
+        <option value="Los Angeles, CA">Los Angeles</option>
+        <option value="Mountain View, CA">Mountain View</option>
+        <option value="">Australia</option>
+    </select>
+</form>
+</body>
+<script>
+    function getSelectedOptions(selectbox) {
+        var result = new Array();
+        var option = null;
+
+        for (var i=0, len=selectbox.options.length; i < len; i++) {
+            option = selectbox.options[i];
+            if (option.selected) {
+                result.push(option);
+            }
+        }
+
+        return result;
+    }
+
+    var selectbox = document.getElementById("selLocation");
+    var selectedOptions = getSelectedOptions(selectbox);
+    var message = "";
+
+    for (var i=0, len=selectedOptions.length; i < len; i++) {
+        message += "Selected index: " + selectedOptions[i].index + "\nSelected text: " + selectedOptions[i].text + "\nSelected value: " + selectedOptions[i].value + "\n\n";
+    }
+
+    alert(message);
+</script>
+</html>
