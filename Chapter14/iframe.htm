@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script type="text/javascript" src="./EventUtil.js"></script>
+</head>
+<body>
+<iframe style="height:100px; width:100px;" name="richedit" src="./blank.htm"></iframe>
+<div class="editable" style="width:100px; height:200px; border: 1px solid blue;" id="myDiv" contenteditable></div>
+</body>
+<script type="text/javascript">
+    EventUtil.addHandler(window, "load", function(){
+        frames["richedit"].document.designMode = "on";
+    });
+
+    var div = document.getElementById("myDiv");
+    div.contentEditable = "true";
+</script>
+</html>
