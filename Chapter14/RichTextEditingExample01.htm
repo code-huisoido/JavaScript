@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script type="text/javascript" src="./EventUtil.js"></script>
+</head>
+<body>
+<iframe style="height:100px; width:100px;" name="richedit" src="./blank.htm"></iframe>
+</body>
+<script type="text/javascript">
+    EventUtil.addHandler(window, "load", function(){
+        frames["richedit"].document.designMode = "on";
+    });
+    frames["richedit"].document.execCommand("bold", false, null);
+
+    frames["richedit"].document.execCommand("italic", false, null);
+    
+</script>
+</html>
