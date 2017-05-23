@@ -11,17 +11,16 @@
     var drawing = document.getElementById("drawing");
     //确定浏览器支持canvas
     if (drawing.getContext) {
+
         var context = drawing.getContext("2d");
 
-        context.strokeStyle = "red";
-        context.fillStyle = "#0000ff";
-        //取得图像的数据 URI
-        var imgURI = drawing.toDataURL("image/png");
+        //绘制红色矩形
+        context.fillStyle = "#ff0000";
+        context.fillRect(10, 10, 50, 50);
 
-        //显示图像
-        var image = document.createElement("img");
-        image.src = imgURI;
-        document.body.appendChild(image);
+        //绘制半透明的蓝色矩形
+        context.fillStyle = "rgba(0, 0, 255, 0.5)";
+        context.fillRect(30, 30, 50, 50);
     }
 </script>
 </html>
