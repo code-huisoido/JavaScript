@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+</head>
+<body>
+<canvas id="drawing" width="220" height="220">A drawing of something.</canvas>
+</body>
+<script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+    //确定浏览器支持canvas
+    if (drawing.getContext) {
+        var context = drawing.getContext("2d");
+        context.strokeRect(10, 10, 210, 210);
+        var fontSize = 100;
+        context.font = fontSize + "px Arial";
+
+        while (context.measureText("Hello world!").width > 140) {
+            fontSize--;
+            context.font = fontSize + "px Arial";
+        }
+
+        context.fillText("Hello world!", 10, 36);
+        context.fillText("Font size is " + fontSize + "px", 10, 62);
+    }
+</script>
+</html>
