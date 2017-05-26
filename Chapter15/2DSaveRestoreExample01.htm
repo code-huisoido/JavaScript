@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+</head>
+<body>
+<canvas id="drawing" width="500" height="500">A drawing of something.</canvas>
+</body>
+<script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+    //确定浏览器支持canvas
+    if (drawing.getContext) {
+        var context = drawing.getContext("2d");
+        
+        context.fillStyle = "#ff0000";
+        context.save();
+
+        context.fillStyle = "#00ff00";
+        context.translate(100, 100);
+        context.save();
+
+        context.fillStyle = "#0000ff";
+        context.fillRect(0, 0, 100, 200);
+
+        context.restore();
+        context.fillRect(10, 10, 100, 200);
+
+        context.restore();
+        context.fillRect(0, 0, 100, 200);
+    }
+</script>
+</html>
