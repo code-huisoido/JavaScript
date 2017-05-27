@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+</head>
+<body>
+<canvas id="drawing" width="512" height="512">A drawing of something.</canvas>
+</body>
+<script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+
+    if (drawing.getContext) {
+
+        context = drawing.getContext("2d");
+        context.fillStyle = "#ff0000";
+        context.fillRect(10, 10, 50, 50);
+
+        context.globalCompositeOperation = "destination-over";
+
+        context.fillStyle = "rgba(0, 0, 255, 1)";
+        context.fillRect(30, 30, 50, 50);
+    }
+</script>
+</html>
