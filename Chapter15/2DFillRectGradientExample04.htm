@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+</head>
+<body>
+<canvas id="drawing" width="200" height="200">A drawing of something.</canvas>
+</body>
+<script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+    //确定浏览器支持canvas
+    if (drawing.getContext) {
+        var context = drawing.getContext("2d");
+        
+        var gradient = context.createRadialGradient(55, 55, 10, 55, 55, 30);
+
+        gradient.addColorStop(0, "white");
+        gradient.addColorStop(1, "black");
+
+        //绘制红色矩形
+        context.fillStyle = "#ff0000";
+        context.fillRect(10, 10, 50, 50);
+
+        //绘制渐变矩形
+        context.fillStyle = gradient;
+        context.fillRect(30, 30, 50, 50);
+    }
+</script>
+</html>
