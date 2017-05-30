@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<canvas id="drawing" width="200" height="200">A drawing of something.</canvas>
+</body>
+<script type="text/javascript">
+    var drawing = document.getElementById("drawing");
+    var gl;
+    //确定浏览器支持<canvas>元素
+    if (drawing.getContext) {
+        try {
+            gl = drawing.getContext("experimental-webgl", { alpha: false});
+            g1.clearColor(0, 0, 0, 1);
+            g1.clear(g1.COLOR_BUFFER_BIT);
+            g1.viewport(0, drawing.height/2, drawing.width/2, drawing.height/2);
+        } catch (ex) {
+
+        }
+        
+        if (gl) {
+            // 使用 WebGL
+
+        } else {
+            alert("WebGL context could not be created.");
+        }
+    }
+</script>
+</html>

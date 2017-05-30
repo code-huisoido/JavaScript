@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var buffer = new ArrayBuffer(20),
+        view = new DataView(buffer),
+        value;
+
+    view.setUint16(0, 25);
+    value = view.getInt8(0);
+
+    console.log(view);
+</script>
+</html>
