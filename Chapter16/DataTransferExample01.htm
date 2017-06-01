@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var dataTransfer = event.dataTransfer;
+
+    //读取URL
+    var url = dataTransfer.getData("url") || dataTransfer.getData("text/uri-list");
+
+    //读取文本
+    var text = dataTransfer.getData("Text");
+</script>
+</html>
