@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //finally 无论如何都会执行
+    function testFinally() {
+        try {
+            alert("1");
+        } catch (error) {
+            alert("2");
+        } finally {
+            alert("3");
+        }
+    }
+
+    testFinally();
+</script>
+</html>

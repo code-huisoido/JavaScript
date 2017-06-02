@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function CustomError(message) {
+        this.name = "CustomError";
+        this.message = message;
+    }
+
+    CustomError.prototype = new Error();
+    throw new CustomError("My error message");
+</script>
+</html>
