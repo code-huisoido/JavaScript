@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function log(message) {
+        if (typeof console == "object") {
+            console.log(message);
+        } else if (typeof opera == "object") {
+            opera.postError(message);
+        } else if (typeof java == "object" && typeof java.lang == "object") {
+            java.lang.System.out.println(message);
+        }
+    }
+
+    log("hello world");
+</script>
+</html>

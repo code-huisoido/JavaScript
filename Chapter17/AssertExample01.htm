@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function assert(condition, message) {
+        if (!condition) {
+            throw new Error(message);
+        }
+    }
+
+    function divide(num1, num2) {
+        assert (typeof num1 == "number" && typeof num2 == "number", "divide(): Both arguments must be numbers.");
+        return num1 / num2;
+    }
+
+    divide(2, "23");
+</script>
+</html>
