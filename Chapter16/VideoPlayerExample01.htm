@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Chapter13/EventUtil.js"></script>
+</head>
+<body>
+    <div class="mediaplayer">
+        <div class="video">
+            <video src="./movie.ogg" id="player" poster="./chicken.png" width="256" height="256">
+                Video player not available.
+            </video>
+        </div>
+        <div class="controls">
+            <input type="button" value="Play" id="video-btn">
+            <span id="curtime">0</span>/<span id="duration">0</span>
+        </div>
+    </div>
+</body>
+<script>
+    var player = document.getElementById("player"),
+        btn = document.getElementById("video-btn"),
+        curtime = document.getElementById("curtime"),
+        duration = document.getElementById("duration");
+
+    /**
+     * 更新播放时间
+     * 如果用书中的代码，会得到NAN，原因是页面加载时执行script，但视频还未加载完成，因此加上canplay事件进行判断
+     * duration.innerHTML = Math.ceil(player.duration);
+     */
+    
+    EventUtil.addHandler(player, "canplay", function(event){
+        duration.innerHTML = Math.ceil(player.duration);
+    });    
+
+    //为按钮添加事件处理程序
+    EventUtil.addHandler(btn, "click", function(event){
+        if (player.paused) {
+            player.play();
+            btn.value = "Pause";
+        } else {
+            player.pause();
+            btn.value = "Play";
+        }
+    });
+
+    //定时更新当前时间
+    setInterval(function(){
+        curtime.innerHTML = Math.ceil(player.currentTime);
+    }, 250);
+
+</script>
+</html>
