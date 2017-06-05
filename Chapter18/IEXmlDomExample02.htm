@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function createDocument(){
+        if (typeof arguments.callee.activeXString != "string") {
+            var versions = ["MSXML2.DOMDocument.6.0", "MSXML2.DOMDocument.3.0", "MSXML2.DOMDocument"],
+                i, len;
+
+            for (i=0,len=versions.length; i < len; i++) {
+                try {
+                    new ActiveXObject(versions[i]);
+                    arguments.callee.activeXString = versions[i];
+                    break;
+                } catch (ex) {
+                    //跳过
+                }
+            }
+        }
+
+        return new ActiveXObject(arguments.callee.activeXString);
+    }
+
+    var xmldom = createDocument();
+    xmldom.loadXML("<root><child/></root>");
+
+    if (xmldom.parseError != 0) {
+        alert("An error occurred:\nError Code: " + xmldom.parseError.errorCode + "\n" + "Line: " + xmldom.parseError.line + "\n" + "Line Pos: " + xmldom.parseError.linepos + "\n" + "Reason: " + xmldom.parseError.reason);
+    }
+
+    console.log(xmldom.documentElement.tagName);
+    console.log(xmldom.documentElement.firstChild.tagName);
+
+    var anotherChild = xmldom.createElement("child");
+    xmldom.documentElement.appendChild(anotherChild);
+
+    var children = xmldom.getElementsByTagName("child");
+    console.log(children.length);
+
+    console.log(xmldom.xml);
+</script>
+</html>

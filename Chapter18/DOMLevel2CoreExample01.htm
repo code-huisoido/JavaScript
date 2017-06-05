@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var xmldom = document.implementation.createDocument("", "root", null);
+
+    console.log(xmldom.documentElement.tagName);
+
+    var child = xmldom.createElement("child");
+    xmldom.documentElement.appendChild(child);
+
+    var hasXmlDom = document.implementation.hasFeature("XML", "2.0");
+    console.log(hasXmlDom);
+</script>
+</html>

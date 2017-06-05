@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var parser = new DOMParser(),
+        xmldom,
+        errors;
+
+    try {
+        xmldom = parser.parseFromString("<root>", "text/xml");
+        errors = xmldom.getElementsByTagName("parsererror");
+        if (errors.length > 0) {
+            throw new Error("Parsing error!");
+        }
+    } catch (ex) {
+        console.log("Parsing error!");
+    }
+</script>
+</html>

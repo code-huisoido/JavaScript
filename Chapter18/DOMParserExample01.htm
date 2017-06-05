@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var parser = new DOMParser();
+    var xmldom = parser.parseFromString("<root><child/></root>", "text/xml");
+
+    console.log(xmldom.documentElement.tagName);
+    console.log(xmldom.documentElement.firstChild.tagName);
+
+    var anotherChild = xmldom.createElement("child");
+    xmldom.documentElement.appendChild(anotherChild);
+
+    var children = xmldom.getElementsByTagName("child");
+    console.log(children.length);
+</script>
+</html>
