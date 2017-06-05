@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var book = { 
+        title: 'Professional JavaScript',
+        authors: ["Nicholas C. Zakas", "hui"],
+        edition: 3,
+        year: 2011
+    };
+
+    var jsonText = JSON.stringify(book, function(key, value){
+        switch (key) {
+            case "authors":
+                return value.join(",")
+            case "year":
+                return 5000;
+            case "edition":
+                return undefined;
+            default:
+                return value;
+        }
+    });
+    console.log(jsonText);
+
+</script>
+</html>
