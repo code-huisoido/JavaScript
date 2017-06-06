@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //图像Ping常用于跟踪用户点击页面或动态广告曝光次数
+    //只能浏览器与服务器的单向通信
+    var img = new Image();
+    img.onload = img.onerror = function(){
+        alert("Done!");
+    };
+    img.src = "http://www.example.com/test?name=Nicholas";
+</script>
+</html>
