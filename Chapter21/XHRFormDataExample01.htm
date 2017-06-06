@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="user-name"><br/>
+        <input type="text" name="user-email"><br/>
+        <input type="button" onclick="sendRequest()" value="submit">
+    </form>
+</body>
+<script>
+    function sendRequest(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState == 4) {
+                if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                    alert(xhr.responseText);
+                } else {
+                    alert("Request was unsuccessful: " + xhr.status);
+                }
+            }
+        }
+
+        xhr.open("post", "postexample.php", true);
+        xhr.send(new FormData(document.forms[0]));
+    }
+</script>
+</html>

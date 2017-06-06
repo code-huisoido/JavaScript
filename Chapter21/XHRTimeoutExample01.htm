@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="user-name"><br/>
+        <input type="text" name="user-email"><br/>
+        <input type="button" onclick="sendRequest()" value="submit">
+    </form>
+</body>
+<script>
+    function sendRequest(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState == 4) {
+                try {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        alert(xhr.responseText);
+                    } else {
+                        alert("Request was unsuccessful: " + xhr.status);
+                    }    
+                } catch (ex) {
+
+                }
+            }
+        }
+
+        xhr.open("get", "timeout.php", true);
+        //将超时设置为1秒钟,仅适用于IE8
+        xhr.timeout = 1000;
+        xhr.ontimeout = function(){
+            alert("Request did not return in a second.");
+        };
+        xhr.send(null);
+    }
+</script>
+</html>
