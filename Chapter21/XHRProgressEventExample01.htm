@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="status"></div>
+</body>
+<script>
+    
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            alert(xhr.responseText);
+        } else {
+            alert("Request was unsuccessful: " + xhr.status);
+        }    
+    };
+
+    //在chrome和firefox中，只有loaded和total属性
+    xhr.onprogress = function(event) {
+        var divStatus = document.getElementById("status");
+        if (event.lengthComputable) {
+            divStatus.innerHTML = "Received " + event.loaded + " of " + event.total + " bytes";
+            //书中的写法
+            //divStatus.innerHTML = "Received " + event.position + " of " + event.totalSize + " bytes";
+        }
+        console.log(event);
+    }
+
+    xhr.open("get", "example.txt", true);
+    xhr.send(null);
+    
+</script>
+</html>
