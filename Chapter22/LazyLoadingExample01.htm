@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function createXHR(){
+        if (typeof XMLHttpRequest != "undefined") {
+            createXHR = function(){
+                return new XMLHttpRequest();
+            };
+        } else {
+            createXHR = function(){
+                throw new Error("No XHR object available.");
+            }
+        }
+
+        return createXHR();
+    }
+</script>
+</html>
