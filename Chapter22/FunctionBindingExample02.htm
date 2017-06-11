@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<button id="my-btn">test</button>
+</body>
+<script type="text/javascript">
+    var handler = {
+        text: "Event handled",
+
+        handleClick: function(event){
+            console.log(this.text + ":" + event.type);
+        }
+    };
+
+    function bind(fn, context){
+        return function(){
+            return fn.apply(context, arguments);
+        }
+    }
+
+    var btn = document.getElementById("my-btn");
+    btn.onclick = bind(handler.handleClick, handler);
+</script>
+</html>

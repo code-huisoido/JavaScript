@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<button id="my-btn">test</button>
+</body>
+<script type="text/javascript">
+    var handler = {
+        text: "Event handled",
+
+        handleClick: function(event){
+            console.log(this.text);
+        }
+    };
+
+    var btn = document.getElementById("my-btn");
+    //btn.onclick = handler.handleClick;
+
+    //改进
+    btn.onclick = function(event){
+        handler.handleClick(event);
+    };
+</script>
+</html>
