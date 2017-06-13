@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="my-btn">test</button>
+</body>
+<script>
+    function bind(fn, context){
+        console.log(arguments);
+        var args = Array.prototype.slice.call(arguments, 2);
+        return function(){
+            var innerArgs = Array.prototype.slice.call(arguments);
+            var finalArgs = args.concat(innerArgs);
+            return fn.apply(context, finalArgs);
+        };
+    }
+
+    var handler = {
+        message: "Event handled",
+
+        handleClick: function(name, event){
+            console.log(this.message + ":" + name + ":" + event.type);
+        }
+    };
+
+    var btn = document.getElementById("my-btn");
+    btn.onclick = bind(handler.handleClick, handler, "my-btn");
+    
+</script>
+</html>
