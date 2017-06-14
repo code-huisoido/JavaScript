@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var person = { name: "Nicholas" };
+    Object.freeze(person);
+
+    person.age = 29;
+    console.log(person.age);
+
+    delete person.name;
+    console.log(person.name);
+
+    person.name = "Greg";
+    console.log(person.name);
+</script>
+</html>
