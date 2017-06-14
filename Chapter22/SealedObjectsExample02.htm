@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var person = { name: "Nicholas" };
+    console.log(Object.isExtensible(person));
+    console.log(Object.isSealed(person));
+
+    Object.seal(person);
+    console.log(Object.isExtensible(person));
+    console.log(Object.isSealed(person));
+</script>
+</html>
