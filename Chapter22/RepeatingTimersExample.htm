@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">ww</div>
+</body>
+<script>
+    var left;
+
+    setTimeout(function(){
+        console.log("1");
+        var div = document.getElementById("myDiv");
+        //parseInt("")会返回NaN，因此要初始化0
+        if (!div.style.left) {
+            div.style.left = 0;
+        }
+    
+        left = parseInt(div.style.left) + 5;
+        div.style.left = left + "px";
+
+        if (left < 200) {
+            setTimeout(arguments.callee, 50);
+        }
+    }, 1000);
+</script>
+</html>
