@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventTarget.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    function object(o){
+        function F(){}
+        F.prototype = o;
+        return new F();
+    }
+
+    function inheritPrototype(subType, superType){
+        var prototype = object(superType.prototype);
+        console.log(prototype);
+        prototype.constructor = subType;
+        subType.prototype = prototype;
+    }
+
+    function Person(name, age){
+        EventTarget.call(this);
+        this.name = name;
+        this.age = age;
+    }
+
+    inheritPrototype(Person, EventTarget);
+
+    Person.prototype.say = function(message){
+        this.fire({type:"message", message:message});
+    }
+
+    function handleMessage(event){
+        console.log(event.target.name + " says: " + event.message);
+    }
+
+    var person = new Person("Nicholas", 29);
+
+    person.addHandler("message", handleMessage);
+
+    person.say("Hi there.");
+</script>
+</html>
