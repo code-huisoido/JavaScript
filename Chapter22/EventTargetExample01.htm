@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="./EventTarget.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    function handlerMessage(event){
+        console.log("Message received: " + event.message);
+    }
+
+    var target = new EventTarget();
+
+    target.addHandler("message", handlerMessage);
+
+    target.fire({type:"message", message:"Hello world!"});
+
+    target.removeHandler("message", handlerMessage);
+
+    target.fire({type:"message", message:"Hello world!"});
+</script>
+</html>
