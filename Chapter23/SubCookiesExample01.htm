@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./SubCookieUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    document.cookie = "data=name=Nicholas&book=Professional%20Javascript;"
+
+    var data = SubCookieUtil.getAll("data");
+    console.log(data.name);
+    console.log(data.book);
+
+    console.log(SubCookieUtil.get("data", "name"));
+    console.log(SubCookieUtil.get("data", "book"));
+</script>
+</html>

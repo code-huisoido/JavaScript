@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./CookieUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    CookieUtil.set("name", "Nicholas");
+    CookieUtil.set("book", "Professional JavaScript");
+
+    console.log(CookieUtil.get("name"));
+    console.log(CookieUtil.get("book"));
+
+    CookieUtil.unset("book");
+
+    console.log(CookieUtil.get("name"));
+    console.log(CookieUtil.get("book"));
+
+    CookieUtil.set("name", "Nicholas", "/books/projs/", "www.wrox.com", new Date("January 1, 2018"));
+
+    CookieUtil.unset("name", "/books/projs/", "www.wrox.com");
+
+    CookieUtil.set("name", "Nicholas", null, null, null, true);
+    console.log(document.cookie);
+</script>
+</html>
