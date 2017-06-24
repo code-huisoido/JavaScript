@@ -9,8 +9,12 @@
     
 </body>
 <script>
-    document.cookie = "data=name=Nicholas&book=Professional%20Javascript;"
+    //document.cookie = "data=name=Nicholas&book=Professional%20Javascript;
+    SubCookieUtil.set("data", "name", "Nicholas");
+    SubCookieUtil.set("data", "book", "Professional JavaScript");
 
+    SubCookieUtil.setAll("data", {name:"Nicholas", book:"Professional JavaScript"}, new Date("February 1, 2018"));
+    
     var data = SubCookieUtil.getAll("data");
     console.log(data.name);
     console.log(data.book);
