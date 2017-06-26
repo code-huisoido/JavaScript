@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //globalStorage 在Chrome下实测不存在
+    globalStorage["localhost.host"].name = "Nicholas";
+
+    var name = globalStorage["localhost.host"].name;
+    console.log(name);
+</script>
+</html>

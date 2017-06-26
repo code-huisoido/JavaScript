@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    sessionStorage.setItem("name", "Nicholas");
+
+    sessionStorage.book = "Professional Javascript";
+
+    console.log(sessionStorage.getItem("name"));
+
+    console.log(sessionStorage.book);
+
+    for (var i=0, len=sessionStorage.length; i < len; i++) {
+        var key = sessionStorage.key(i);
+        var value = sessionStorage.getItem(key);
+        console.log(key + '=' + value);
+    }
+
+    for (var key in sessionStorage) {
+        var value = sessionStorage.getItem(key);
+        console.log(key + '=' + value);
+    }
+
+    delete sessionStorage.name;
+
+    sessionStorage.removeItem("book");
+    console.log(sessionStorage);
+</script>
+</html>

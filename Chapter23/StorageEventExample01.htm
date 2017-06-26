@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Chapter13/EventUtil.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    EventUtil.addHandler(document, "storage", function(event){
+        console.log("Storage changed for " + event.domain);
+    });
+</script>
+</html>
