@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var indexedDB = window.indexedDB || window.msIndexedDB || window.mozIndexedDB || window.webkitIndexedDB;
+
+    var request, database;
+
+    request = indexedDB.open("admin");
+    request.onerror = function(event){
+        console.log("Something bad happened while trying to open: " + event.target.errorCode);
+    };
+    request.onsuccess = function(event){
+        database = event.target.result;
+        if (database.version != "1") {
+            request = database.setVersion("1.0");
+            request.onerror = function(event){
+                console.log("Something bad happend while trying to set version: " + event.target.errorCode);
+            };
+            request.onsuccess = function(event){
+                console.log("Database initialization complete. Database name: " + database.name + ", Version: " + database.version);
+            };
+        } else {
+            console.log("Database already initialized. Database name: " + database.name + ", Version: " + database.version);
+        }
+    };
+    request.onupgradeneeded = function(event){
+        var db = event.target.result;
+        var users = [
+            {
+                username: "007",
+                firstName: "James",
+                lastName: "Bond",
+                password: "foo"
+            },
+            {
+                username: "008",
+                firstName: "Lai",
+                lastName: "Ding",
+                password: "www"
+            },
+        ];
+  
+        var store = db.createObjectStore("users", { keyPath: "username" });
+        console.log(store);
+        var i = 0,
+            len = users.length;
+
+        while (i < len) {
+            store.add(users[i++]);
+        }
+    };
+    
+    
+</script>
+</html>
