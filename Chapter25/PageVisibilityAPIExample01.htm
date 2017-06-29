@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+<script>
+    function isHiddenSupported(){
+        return typeof (document.hidden || document.msHidden || document.webkitHidden) != "undefined";
+    }
+
+
+    function handleVisibiltyChange(){
+        var output = document.getElementById("output"),
+            msg;
+
+        if (document.hidden || document.msHidden || document.webkitHidden) {
+            msg = "Page is now hidden. " + (new Date()) + "<br>";
+        } else {
+            msg = "Page is now visible. " + (new Date()) + "<br>";
+        }
+
+        output.innerHTML += msg;
+    }
+
+ 
+    document.addEventListener("webkitvisibilitychange", handleVisibiltyChange, false);
+</script>
+</html>
