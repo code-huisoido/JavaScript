@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Chapter13/EventUtil.js"></script>
+</head>
+<body>
+    <input type="file" id="files-list" />
+</body>
+<script>
+    var filesList = document.getElementById("files-list");
+    EventUtil.addHandler(filesList, "change", function(event){
+        var files = EventUtil.getTarget(event).files,
+            i = 0,
+            len = files.length;
+
+        while (i < len) {
+            console.log(files[i].name + " (" + files[i].type + ", " + files[i].size + " bytes) ");
+            i++;
+        }
+    });
+</script>
+</html>
