@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var watchId = navigator.geolocation.watchPosition(function(position){
+        console.log(position);
+    }, function(error){
+        console.log("Error code: " + error.code);
+        console.log("Error message: " + error.message);
+    });
+
+    //书上这里漏了navigator.geolocation
+    navigator.geolocation.clearWatch(watchId);
+</script>
+</html>

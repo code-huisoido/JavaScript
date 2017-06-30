@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var position = navigator.geolocation;
+
+    position.getCurrentPosition(function(position){
+        console.log(position);
+    }, function(error){
+        console.log("Error Code: " + error.code);
+        console.log("Error Message: " + error.message);
+    }, {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 25000
+    });
+</script>
+</html>
