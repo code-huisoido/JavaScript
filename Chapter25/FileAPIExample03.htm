@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Chapter13/EventUtil.js"></script>
+</head>
+<body>
+    <input type="file" id="files-list" />
+    <div id="output"></div>
+    <div id="progress"></div>
+</body>
+<script>
+    function blobSlice(blob, startByte, length){
+        if (blob.slice) {
+            return blob.slice(startByte, length);
+        } else if (blob.webkitSlice) {
+            return blob.webkitSlice(startByte, length);
+        } else if (blob.mozSlice) {
+            return blob.mozSlice(startByte, length);
+        } else {
+            return null;
+        }
+    }
+
+    var filesList = document.getElementById("files-list");
+    EventUtil.addHandler(filesList, "change", function(event){
+        var info = "",
+            output = document.getElementById("output"),
+            progress = document.getElementById("progress"),
+            files = EventUtil.getTarget(event).files,
+            reader = new FileReader(),
+            blob = blobSlice(files[0], 0, 32);
+
+        if (blob) {
+            reader.readAsText(blob);
+
+            reader.onerror = function(){
+                output.innerHTML = "Could not read file, error code is " + reader.error.code;
+            };
+
+            reader.onload = function(){
+                output.innerHTML = reader.result;
+            };
+        } else {
+            console.log("Your browser doesn't support slice().");
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Chapter13/EventUtil.js"></script>
+    <style type="text/css">
+    #droptarget {
+        width: 500px;
+        height: 100px;
+        border: 1px solid #eee;
+    }
+    </style>
+</head>
+<body>
+    <div id="droptarget">拖放文件到这里</div>
+    <div id="output"></div>
+    <div id="progress"></div>
+</body>
+<script>
+    var droptarget = document.getElementById("droptarget"),
+        progress = document.getElementById("progress");
+
+    function handleEvent(event){
+        var info = "",
+            output = document.getElementById("output"),
+            reader = new FileReader(),
+            files, i, len;
+
+            EventUtil.preventDefault(event);
+
+        if (event.type = "drop") {
+            files = event.dataTransfer.files;
+            i = 0;
+            len = files.length;
+
+            while (i < len) {
+                info += files[i].name + " (" + files[i].type + ", " + files[i].size + " bytes)<br>";
+            
+                if (/image/.test(files[i].type)) {
+                    reader.readAsDataURL(files[i]);
+                    type = "image";
+                } else {
+                    reader.readAsText(files[i]);
+                    type = "text";
+                }
+                
+                reader.onload = function(){
+                    var html = "";
+                    switch (type) {
+                        case "image":
+                            html = "<img src=\"" + reader.result + "\">";
+                            break;
+                        case "text":
+                            html = reader.result;
+                            break;
+                    }
+                    output.innerHTML = html;
+                };
+                i++;
+            }
+            progress.innerHTML = info;
+        }
+    }
+
+    EventUtil.addHandler(droptarget, "dragenter", handleEvent);
+    EventUtil.addHandler(droptarget, "dragover", handleEvent);
+    EventUtil.addHandler(droptarget, "drop", handleEvent);
+</script>
+</html>
