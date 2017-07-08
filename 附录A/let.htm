@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    //let 块(浏览器未实现)
+    var num = 5;
+
+    let (num=10, multiplier=3) {
+        console.log(num * multiplier);
+    }
+
+    console.log(num);
+
+
+    //let 表达式(浏览器未实现)
+    var result = let (num=10, multiplier=2) num * multiplier;
+    console.log(result);
+</script>
+</html>
