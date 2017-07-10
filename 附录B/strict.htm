@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //以谷歌浏览器59版本为准
+    "use strict";
+    //变量：抛出ReferenceError
+    message = "hello";
+
+    /**
+     * 对象 
+     */
+    //书上说会抛出语法错误，实测在谷歌浏览器59版本没有错误，IE10抛出错误，IE8、9没有错误
+    var person = {
+        name: "Nicholas",
+        name: "Greg"
+    };
+
+    /**
+     * 函数
+     */
+    //Uncaught SyntaxError: Duplicate parameter name not allowed in this context
+    function sum(num, num){
+
+    }
+
+    function showValue(value){
+        value = "Foo";
+        console.log(value);
+        console.log(arguments[0]); //会输出Hi
+    }
+
+    showValue("Hi");
+
+    //废除arguments.callee和arguments.caller
+    //Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    function factorial(num){
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num-1);
+        }
+    }
+
+    var result = factorial(5);
+
+    //书中说会抛出语法错误，实际上没有
+    if (true) {
+        function doSomething(){
+            console.log("hide if");
+        }
+    }
+
+    /**
+     * eval
+     */
+     //Uncaught ReferenceError: x is not defined
+    function doSomething(){
+       eval("var x=10");
+       alert(x);
+    }
+
+    doSomething();
+
+     //这样是可以的。
+    var result = eval("var x=10, y=11; x+y");
+    console.log(result);
+
+     /**
+      * 抑制 this
+      */
+    var color = "red";
+
+    function displayColor(){
+        console.log(this.color);
+    }
+    //Uncaught TypeError: Cannot read property 'color' of null
+    displayColor.call(null);
+
+    /**
+     * 其他变化
+     * with(location){} 抛弃
+     * var value = 010; Uncaught SyntaxError: Octal literals are not allowed in strict mode.
+     * var value = parseInt("010"); 书上说严格模式下为10，实测都为10
+     */
+</script>
+</html>
